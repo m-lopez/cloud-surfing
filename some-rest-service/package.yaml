@@ -1,0 +1,47 @@
+name:                some-service
+version:             0.1.0.0
+github:              "m-lopez/cloud-lab"
+license:             MIT
+author:              "Michael Lopez"
+maintainer:          "nope"
+copyright:           "2019 Michael Lopez"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Needs a description.
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  some-service-exe:
+    main:                Main.hs
+    source-dirs:         app
+    default-extensions:
+    - OverloadedStrings
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - some-service
+    - snap-server
+    - snap-core
+
+tests:
+  some-service-test:
+    main:                Spec.hs
+    source-dirs:         test
+    default-extensions:
+    - OverloadedStrings
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - some-service
